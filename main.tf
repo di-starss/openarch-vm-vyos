@@ -34,7 +34,7 @@ variable "vm_mem" { default = 2048 }
 variable "vm_cpu" { default = 2 }
 
 # base
-variable "img_url" { default = "http://img.openarch.ninja/vyos-1.4-cloud-init-20G-qemu.qcow2" }
+variable "img_url" {}
 
 # qemu
 variable "volume_path_img" { default = "/data/img" }
