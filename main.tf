@@ -40,7 +40,8 @@ variable "img_url" {}
 variable "volume_path_img" { default = "/data/img" }
 variable "volume_path_pool" { default = "/data/pool" }
 
-# network
+# mgmt
+variable "mgmt_password" {}
 variable "mgmt_ipaddress" {}
 variable "mgmt_gateway" {}
 variable "mgmt_interface" { default = "eth0" }
@@ -88,6 +89,7 @@ data "template_file" "user_data" {
   template = file("${path.module}/cloud_init/user_data.cfg")
   vars = {
     hostname        = var.vm_name
+    mgmt_password   = var.mgmt_password
     mgmt_ipaddress  = var.mgmt_ipaddress
     mgmt_gateway    = var.mgmt_gateway
     mgmt_interface  = var.mgmt_interface
